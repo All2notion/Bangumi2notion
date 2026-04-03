@@ -57,16 +57,16 @@ async function ensureDatabaseProperties() {
     // 检查并添加必要的属性
     const properties = database.properties;
     const requiredProperties = {
-      '番剧名称': { type: 'title' },
-      '中文名': { type: 'rich_text' },
-      '话数': { type: 'number' },
-      '放送时间': { type: 'date' },
-      '状态': { type: 'select' },
-      'Bangumi ID': { type: 'number' },
-      '评分': { type: 'number' },
-      '类型': { type: 'multi_select' },
-      '标签': { type: 'multi_select' },
-      '收藏状态': { type: 'select' }
+      '番剧名称': { title: {} },
+      '中文名': { rich_text: {} },
+      '话数': { number: {} },
+      '放送时间': { date: {} },
+      '状态': { select: {} },
+      'Bangumi ID': { number: {} },
+      '评分': { number: {} },
+      '类型': { multi_select: {} },
+      '标签': { multi_select: {} },
+      '收藏状态': { select: {} }
     };
 
     const propertiesToAdd = {};
