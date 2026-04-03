@@ -2,6 +2,7 @@
   "name": "bangumi-to-notion-sync",
   "version": "1.0.0",
   "description": "Sync Bangumi anime list to Notion gallery view database",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "sync": "node index.js"
