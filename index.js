@@ -54,10 +54,24 @@ async function ensureDatabaseProperties() {
   try {
     const database = await notion.databases.retrieve({ database_id: NOTION_DATABASE_ID });
     
-    // 检查并添加必要的属性
+    // 检查是否存在名为'番剧名称'的title属性
     const properties = database.properties;
+    let hasTitleProperty = false;
+    
+    for (const [name, property] of Object.entries(properties)) {
+      if (property.type === 'title' && name === '番剧名称') {
+        hasTitleProperty = true;
+        break;
+      }
+    }
+    
+    if (!hasTitleProperty) {
+      console.warn('Warning: Database does not have a title property named "番剧名称".');
+      console.warn('Please ensure your database has a title property with this name.');
+    }
+    
+    // 检查并添加必要的属性（不包括title属性，因为Notion不允许通过更新添加title属性）
     const requiredProperties = {
-      '番剧名称': { title: {} },
       '中文名': { rich_text: {} },
       '话数': { number: {} },
       '放送时间': { date: {} },
